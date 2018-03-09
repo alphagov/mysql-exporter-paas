@@ -2,5 +2,22 @@
 
 export DATA_SOURCE_NAME=$DATABASE_URL
 
-./mysqld_exporter \
-  --web.listen-address=":$PORT"
+./mysqld_exporter                               \
+  --web.listen-address=":$PORT"                 \
+  --collect.auto_increment.columns=true         \
+  --collect.binlog_size=true                    \
+  --collect.engine_innodb_status=true           \
+  --collect.engine_tokudb_status=true           \
+  --collect.info_schema.clientstats=true        \
+  --collect.info_schema.innodb_metrics=true     \
+  --collect.info_schema.innodb_tablespaces=true \
+  --collect.info_schema.processlist=true        \
+  --collect.info_schema.tables.databases='*'    \
+  --collect.info_schema.tablestats=true         \
+  --collect.info_schema.userstats=true          \
+  --collect.perf_schema.eventswaits=true        \
+  --collect.perf_schema.file_events=true        \
+  --collect.perf_schema.file_instances=true     \
+  --collect.perf_schema.indexiowaits=true       \
+  --collect.perf_schema.tableiowaits=true       \
+  --collect.perf_schema.tablelocks=true
