@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export DATA_SOURCE_NAME=$DATABASE_URL
+
+./mysqld_exporter \
+  --web.listen-address=":$PORT"

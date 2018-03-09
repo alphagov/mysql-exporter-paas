@@ -1,0 +1,10 @@
+---
+applications:
+- name: mysql-exporter-paas
+  memory: 64M
+  instances: 1
+  command: ./setup && ./run
+  buildpack: binary_buildpack
+  services:
+    - test-mysql
+    - my-prom
