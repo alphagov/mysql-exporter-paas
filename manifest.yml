@@ -6,5 +6,5 @@ applications:
   command: ./setup && ./run
   buildpack: binary_buildpack
   services:
-    - test-mysql
+    - rails-mysql
     - my-prom
