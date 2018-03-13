@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+json = ENV.fetch("VCAP_SERVICES")
+vcap_services = JSON.parse(json)
+mysql = vcap_services.fetch("mysql")
+creds = mysql.first.fetch("credentials")
+
+user = creds.fetch("username")
+pass = creds.fetch("password")
+host = creds.fetch("host")
+port = creds.fetch("port")
+name = creds.fetch("name")
+params = "?tls=skip-verify"
+
+print "#{user}:#{pass}@(#{host}:#{port})/#{name}#{params}"
