@@ -7,4 +7,4 @@ applications:
   buildpack: binary_buildpack
   services:
     - rails-mysql
-    - my-prom
+    - sandbox-prometheus
